@@ -1,6 +1,8 @@
 ---
 - name: install httpd
   hosts: all
+  vars:    
+      ansible_python_interpreter: auto
   tasks:
     - name: install httpd
       yum:
