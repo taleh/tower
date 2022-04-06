@@ -1,0 +1,20 @@
+---
+- name: install httpd
+  hosts: all
+  gather_facts: no
+  vars:    
+      ansible_python_interpreter: auto
+  tasks:
+    - name: Create a copy template
+      uri:
+        url: https://54.75.117.84/api/v2/job_templates/9/copy/
+        user: admin
+        password: redhat
+        method: POST
+        body:
+          name: "tower-copy" 
+        force_basic_auth: yes
+        return_content: yes
+        validate_certs: false
+        status_code: 201
+        body_format: json 
